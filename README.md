@@ -13,7 +13,7 @@ The build process is equal to the process for Foxhound, except after compiling w
 Just as with foxhound, use `./mach package` to obtain an archive containing the compiled browser for use on other systems.
 
 ## Current Status
-- ✅ Currently working with: Playwright v1.21 (JS) on Ubuntu
+- ✅ Currently tested with: Playwright v1.21 (Javascript) on Ubuntu
 
 ## More
 - The Foxhound README file provides additional details about the patched firefox and build instructions: [Foxhound README](README_OLD.md)
