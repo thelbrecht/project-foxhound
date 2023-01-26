@@ -85,3 +85,6 @@ The test suite can be run as follows, assuming a release build is available:
 cd js/src
 ./tests/jstests.py ../../obj-tf-release/dist/bin/js taint/
 ```
+
+### Building for Playwright
+Currently working with: Playwright v1.21
