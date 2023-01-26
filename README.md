@@ -1,10 +1,19 @@
 # Project "Foxhound" patched for Playwright
-[Old README](README_OLD.md)
+This repository contains a patched version of Project Foxhound, which enables the engine to be used in combination with Playwright. We applied the open-source firefox patch from Playwright, located in the Playwright project repository. Accesible under: [GitHub Playwright Repository](https://github.com/microsoft/playwright/tree/release-1.21/browser_patches/firefox)
 
-Applied open-source firefox patch adding Juggler and other changes to support interaction via Playwright with the taint-aware firefox browser. Patch diff is accesible under: [GitHub Playwright Repository](https://github.com/microsoft/playwright/tree/release-1.21/browser_patches/firefox)
+The patch adds Juggler and other changes to support interaction via Playwright with the taint-aware firefox browser. We simply apply the bootstrapped diff file located at [/browser_patches/firefox/patches/bootstrap.diff](https://github.com/microsoft/playwright/blob/11f51455f212c4452ff8b0722f72f473053a868a/browser_patches/firefox/patches/bootstrap.diff). Furthermore, we moved the Juggler files in the foxhound source folder & copyied additional configuration options into the `taintfox_mozconfig_ubuntu` config (the concrete options could be extracted from `BUILD.sh` from the playwright repository).
 
 ## Build instructions
-After compiling, run `install-preferences.js` to apply playwright specific configuration options.
+The build process is equal to the process for Foxhound, except after compiling we need to use the `install-preferences.js` script to tweak the browser preferences for usage with playwright.
+- Make sure to install all build tools using `./mach bootstrap`
+- Compile the browser with `./mach build`
+- After compiling, run `node install-preferences.js DIST_PATH` to apply playwright specific configuration options, where `DIST_PATH` is the output folder containing the compiled foxhound browser
+
+## Packaging
+Just as with foxhound, use `./mach package` to obtain an archive containing the compiled browser for use on other systems.
 
 ## Current Status
 - ✅ Currently working with: Playwright v1.21 (JS) on Ubuntu
+
+## More
+- The Foxhound README file provides additional details about the patched firefox and build instructions: [Foxhound README](README_OLD.md)
