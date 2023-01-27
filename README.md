@@ -9,7 +9,7 @@ The build process is equal to the process for Foxhound, except after compiling w
 - Compile the browser with `./mach build`
 - After compiling, run `node install-preferences.js DIST_PATH` to apply playwright specific configuration options, where `DIST_PATH` is the output folder containing the compiled foxhound browser
 
-# Packaging
+### Packaging
 Just as with foxhound, use `./mach package` to obtain an archive containing the compiled browser for use on other systems.
 
 ## Using with Playwright
